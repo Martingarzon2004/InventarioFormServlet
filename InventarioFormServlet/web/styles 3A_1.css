@@ -1,0 +1,144 @@
+*{
+    padding: 1px;
+    margin: 1px;
+    margin-top: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    background: #f0f0f0;
+}
+body{
+    height: 700px;
+    width: 1000px;
+    margin: auto;
+}
+h2 {
+    color: #4691c8
+}
+
+ul{
+    list-style: none;
+    padding: 1px;
+    margin: 1px;
+}
+form li + li {
+    margin-top: 1px;
+}
+
+h3,h4 {
+    color: #4691c8;
+    float: left;
+}
+
+
+#salida{
+    height: 50px;
+    width: 200px;
+    background: rgb(241,225,225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    float:left;
+}
+#anadir{
+    height: 50px;
+    width: 200px;
+    background: rgb(241,241,225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+#borrar{
+    height: 50px;
+    width: 200px;
+    background: rgb(227,241,225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+#guardar{
+    height: 50px;
+    width: 200px;
+    background: rgb(225,226,241);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+
+#ingreso{
+    height: 400px;
+    width: 460px;
+    background: rgb(241,225,240);
+    border: 2px solid #4691c8;
+    float:left;
+}
+    #nombre{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+    #cantidad{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+    #precio{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+    #iva{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+    #categoria{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+    #lugar{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+#seleccion{
+    height: 80px;
+    width: 500px;
+    background: rgb(241,225,240);
+    border: 2px solid #4691c8;
+    float:left;
+}
+    #annadir{
+        height: 30px;
+        width: 70px;
+        background: rgb(240, 226, 207);
+        border: 1px solid #4691c8;
+        font-size: medium;
+        color: #4691c8;
+    }
+    #remover{
+        height: 30px;
+        width: 70px;
+        background: rgb(207, 240, 230);
+        border: 1px solid #4691c8;
+        font-size: medium;
+        color: #4691c8;
+    }
+#pre-factura{
+    height: 80px;
+    width: 500px;
+    background: rgb(225, 241, 241);
+    border: 2px solid #4691c8;
+    border-radius: 6px;
+    float:left;
+}
