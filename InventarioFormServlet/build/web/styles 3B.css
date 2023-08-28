@@ -1,0 +1,101 @@
+*{
+    padding: 1px;
+    margin: 1px;
+    margin-top: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    background: #f0f0f0;
+}
+body{
+    height: 700px;
+    width: 1000px;
+    margin: auto;
+}
+h2 {
+    color: #4691c8
+}
+
+ul{
+    list-style: none;
+    padding: 1px;
+    margin: 1px;
+}
+form li + li {
+    margin-top: 1px;
+}
+
+h3,h4,h5 {
+    color: #4691c8;
+    float: left;
+}
+
+
+#salida{
+    height: 50px;
+    width: 200px;
+    background: rgb(241,225,225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    float:left;
+}
+#editar{
+    height: 50px;
+    width: 200px;
+    background: rgb(241, 240, 225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+#borrar{
+    height: 50px;
+    width: 200px;
+    background: rgb(230, 241, 225);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+#busqueda{
+    height: 200px;
+    width: 440px;
+    background: rgb(225,226,241);
+    border: 1px solid #4691c8;
+    float:left;
+}
+    #nombre,#cantidad,#precio,#iva,#categoria,#lugar,#direccion,#telefono,#email{
+        height: 20px;
+        width: 250px;
+        background: rgb(255, 255, 255);
+        border: 2px solid #4691c8;
+    }
+#buscar{
+    height: 50px;
+    width: 200px;
+    background: rgb(225,226,241);
+    border: 2px solid #4691c8;
+    font-size: large;
+    color: #4691c8;
+    float:left;
+}
+
+table {
+    background: rgb(225, 241, 241);
+    border-collapse: collapse;
+    border: 2px solid #4691c8;
+    border-radius: 6px;
+    float:left;    
+    letter-spacing: 1px;
+  }
+
+  td, th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px 20px;
+  }
+
+  td {
+    text-align: center;
+  }
+  
