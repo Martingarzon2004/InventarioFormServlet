@@ -78,9 +78,6 @@ class FormularioInventario:
     global boxIvaA
     boxIvaA =None
 
-    global textBoxCantidadA
-    textBoxCantidadA =None
-
     global textBoxMinCantidadA
     textBoxMinCantidadA =None
 
@@ -172,24 +169,20 @@ def Formulario():
             boxIvaA = ttk.Combobox(f1a,values=["N/A","5%","19%"],textvariable=seleccionIva)
             boxIvaA.grid(row=5,column=1)
 
-            labelBoxCantidadA=Label(f1a,text="Cantidad minima:",width=15,font=("arial",10)).grid(row=6,column=0)
-            textBoxCantidadA = Entry(f1a)
-            textBoxCantidadA.grid(row=6,column=1)
-
-            labelMinCantidadA=Label(f1a,text="Cantidad minima:",width=15,font=("arial",10)).grid(row=7,column=0)
+            labelMinCantidadA=Label(f1a,text="Cantidad minima:",width=15,font=("arial",10)).grid(row=6,column=0)
             textBoxMinCantidadA = Entry(f1a)
-            textBoxMinCantidadA.grid(row=7,column=1)
+            textBoxMinCantidadA.grid(row=6,column=1)
 
-            labelFechaA=Label(f1a,text="Fecha:",width=15,font=("arial",10)).grid(row=8,column=0)
+            labelFechaA=Label(f1a,text="Fecha:",width=15,font=("arial",10)).grid(row=7,column=0)
             textBoxFechaA = Entry(f1a)
-            textBoxFechaA.grid(row=8,column=1)
+            textBoxFechaA.grid(row=7,column=1)
 
-            labelComentario1A=Label(f1a,text="Comentarios:",width=10,font=("arial",10)).grid(row=9,column=0)
-            textBoxComentario1A = Entry(f1a)
-            textBoxComentario1A.grid(row=9,column=1)
+            labelComentariosA=Label(f1a,text="Comentarios:",width=10,font=("arial",10)).grid(row=8,column=0)
+            textBoxComentariosA = Entry(f1a)
+            textBoxComentariosA.grid(row=8,column=1)
 
 
-            Button(f1a,text="Modificar",width=10,command=alterarRegistros).grid(row=9,column=0)
+            Button(f1a,text="Modificar",width=10,command=alterarRegistros).grid(row=10,column=0)
 
 
             f2 = Frame(groupBox)
@@ -223,8 +216,7 @@ def Formulario():
             
 
             tree = ttk.Treeview(groupBox,columns=("Id", "Categorias", "Ubicación", "Nombre",
-            "Val.Compra", "Iva", "Entradas", "Salidas", "Stock", "Min.Cantidad", "Total sin IVA",
-            "Fecha de inclución", "Fecha de modificación", "Comentarios"),selectmode="browse",
+            "Val.Compra", "Iva", "Entradas", "Salidas", "Stock"),selectmode="browse",
             show="headings", height=10)
             tree.grid(row=1,column=1)
 
@@ -384,7 +376,6 @@ def seleccionarRegistro(event):
             textBoxNombreA.delete(0,END)
             textBoxValorCompraA.delete(0,END)
             boxIvaA.delete(0,END)
-            textBoxCantidadA.delete(0,END)
             textBoxMinCantidadA.delete(0,END)
             textBoxFechaA.delete(0,END)
             textBoxComentariosA.delete(0,END)
@@ -401,7 +392,6 @@ def seleccionarRegistro(event):
             textBoxUbicacionA.insert(0,values[2])
             textBoxNombreA.insert(0,values[3])
             textBoxValorCompraA.insert(0,values[4])
-            textBoxCantidadA.insert(0,values[6])
             textBoxMinCantidadA.insert(0,values[9])
             textBoxFechaA.insert(0,values[11])
             textBoxComentariosA.insert(0,values[13])
@@ -410,7 +400,7 @@ def seleccionarRegistro(event):
         print("Error al seleccionar datos: Error {}".format(error))
 
 def alterarRegistros():
-            global textBoxId,comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxCantidadA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
+            global textBoxId,comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
             try:
                 if textBoxId is None or comboA is None or textBoxUbicacionA is None or textBoxNombreA is None or textBoxValorCompraA is None or boxIvaA is None or textBoxMinCantidadA is None or textBoxFechaA is None or textBoxComentariosA is None:
                     messagebox.showinfo("Información","Datos incompletos. Porfavor, rellene todos los campos de datos")
@@ -418,14 +408,14 @@ def alterarRegistros():
                     return
                 
                 Id = textBoxId.get()
-                Categoria = combo.get()
-                Ubicación = textBoxUbicacion.get()
-                Nombre = textBoxNombre.get()
-                ValorCompra = textBoxValorCompra.get()
-                Iva = boxIva.get()
-                MinCantidad = textBoxMinCantidad.get()
-                Fecha = textBoxFecha.get()
-                Comentarios = textBoxComentarios.get()
+                Categoria = comboA.get()
+                Ubicación = textBoxUbicacionA.get()
+                Nombre = textBoxNombreA.get()
+                ValorCompra = textBoxValorCompraA.get()
+                Iva = boxIvaA.get()
+                MinCantidad = textBoxMinCantidadA.get()
+                Fecha = textBoxFechaA.get()
+                Comentarios = textBoxComentariosA.get()
 
                 CProductos.modificarProductos(Id,Categoria,Ubicación,Nombre,ValorCompra,Iva,MinCantidad,Fecha,Comentarios)
                 messagebox.showinfo("Información","Los datos fueron añadidos correctamente.")
@@ -434,15 +424,14 @@ def alterarRegistros():
 
 
                 textBoxId.delete(0,END)
-                combo.delete(0,END)
-                textBoxUbicacion.delete(0,END)
-                textBoxNombre.delete(0,END)
-                textBoxValorCompra.delete(0,END)
-                boxIva.delete(0,END)
-                textBoxCantidad.delete(0,END)
-                textBoxMinCantidad.delete(0,END)
-                textBoxFecha.delete(0,END)
-                textBoxComentarios.delete(0,END)
+                comboA.delete(0,END)
+                textBoxUbicacionA.delete(0,END)
+                textBoxNombreA.delete(0,END)
+                textBoxValorCompraA.delete(0,END)
+                boxIvaA.delete(0,END)
+                textBoxMinCantidadA.delete(0,END)
+                textBoxFechaA.delete(0,END)
+                textBoxComentariosA.delete(0,END)
             
             except ValueError as error:
                 print("Error al modificar los datos: Error {}".format(error))
