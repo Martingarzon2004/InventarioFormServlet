@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     padding: 1px;
     margin: 2px;
@@ -79,4 +80,87 @@ h3 {
     background: #f0f0f0;
     border: 2px solid #4691c8;
     float: left;
+=======
+*{
+    padding: 1px;
+    margin: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    background: #f0f0f0;
+}
+body{
+    height: 700px;
+    width: 900px;
+    margin: auto;
+}
+h2{
+    color: #4691c8
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+form li + li {
+    margin-top: 1px;
+}
+
+
+#nombre{
+    height: 30px;
+    width: 825px;
+    background: #ffffff;
+    border: 2px solid #4691c8;
+}
+#correo{
+    height: 30px;
+    width: 825px;
+    background: #ffffff;
+    border: 2px solid #4691c8;
+}
+#clave{
+    height: 30px;
+    width: 825px;
+    background: #ffffff;
+    border: 2px solid #4691c8;
+}
+#confirma{
+    height: 30px;
+    width: 825px;
+    background: #ffffff;
+    border: 2px solid #4691c8;
+}
+#activacion{
+    height: 30px;
+    width: 825px;
+    background: #ffffff;
+    border: 2px solid #4691c8;
+}
+
+h3 {
+    color: #4691c8;
+    padding: 20px;
+    float: left;
+
+}
+
+#activar {
+    height: 35px;
+    width: 825px;
+    background: #79c6ff;
+    border: 2px solid #4691c8;
+    float: left;
+    font-size: large;
+}
+
+#menu {
+    height: 65px;
+    width: 800px;
+    background: #f0f0f0;
+    border: 2px solid #4691c8;
+    float: left;
+>>>>>>> 00b634e5e3e1b41ff4812c163629d871d60de106
 }

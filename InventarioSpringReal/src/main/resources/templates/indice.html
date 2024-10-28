@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>indice</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>TODO write content</h1>
+        <div th:if="${Listas != null and !Listas.empty}">
+            <table border="2">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Tipodeproducto</th>
+                    <th>Localizacion</th>
+                    <th>Preciodeventa</th>
+                </tr>
+                <tr th:each="lista de productos : ${Listas}">
+                    <td th:text="${lista de productos.Nombre}">Nombre</td>
+                    <td th:text="${lista de productos.Cantidad}">Cantidad</td>
+                    <td th:text="${lista de productos.Tipodeproducto}">Tipodeproducto</td>
+                    <td th:text="${lista de productos.Localizacion}">Localizacion</td>
+                    <td th:text="${lista de productos.Preciodeventa}">Preciodeventa</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${Listas == null or Listas.empty}">
+            La lista no tiene información.
+        </div>
+    </body>
+</html>
