@@ -42,8 +42,14 @@ class FormularioInventario:
     global textBoxMinCantidad
     textBoxMinCantidad =None
 
+    global textBoxNuevaFecha
+    textBoxNuevaFecha =None
+
     global textBoxFecha
     textBoxFecha =None
+
+    global textBoxComentario1
+    textBoxComentario1 =None
 
     global textBoxComentarios
     textBoxComentarios =None
@@ -57,8 +63,36 @@ class FormularioInventario:
     global tree2
     tree2 =None
 
+    global comboA
+    comboA =None
+
+    global textBoxUbicacionA
+    textBoxUbicacionA =None
+
+    global textBoxNombreA
+    textBoxNombreA =None
+
+    global textBoxValorCompraA
+    textBoxValorCompraA =None
+
+    global boxIvaA
+    boxIvaA =None
+
+    global textBoxCantidadA
+    textBoxCantidadA =None
+
+    global textBoxMinCantidadA
+    textBoxMinCantidadA =None
+
+    global textBoxFechaA
+    textBoxFechaA=None
+
+    global textBoxComentariosA
+    textBoxComentariosA=None
+
 def Formulario():
-        global textBoxId,combo,combo2,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxFecha,textBoxComentarios,groupBox,tree
+        global textBoxId,combo,combo2,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxNuevaFecha,textBoxFecha,textBoxComentario1,textBoxComentarios,groupBox,tree
+        global comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxCantidadA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
         try:
             base = Tk()
             base.geometry("1260x350")
@@ -72,7 +106,7 @@ def Formulario():
 
             textBoxId = Entry(f1)
 
-            textBoxCantidad = Entry(f1)
+            ##textBoxCantidad = Entry(f1)
 
             labelCategoria=Label(f1,text="Categorias:",width=10,font=("arial",10)).grid(row=1,column=0)
             seleccionCategoria = tk.StringVar()
@@ -100,67 +134,68 @@ def Formulario():
             textBoxMinCantidad = Entry(f1)
             textBoxMinCantidad.grid(row=6,column=1)
 
-            labelFecha=Label(f1,text="Fecha:",width=15,font=("arial",10)).grid(row=7,column=0)
-            textBoxFecha = Entry(f1)
-            textBoxFecha.grid(row=7,column=1)
+            labelNuevaFecha=Label(f1,text="Fecha:",width=15,font=("arial",10)).grid(row=7,column=0)
+            textBoxNuevaFecha = Entry(f1)
+            textBoxNuevaFecha.grid(row=7,column=1)
 
-            labelComentarios=Label(f1,text="Comentarios:",width=10,font=("arial",10)).grid(row=8,column=0)
-            textBoxComentarios = Entry(f1)
-            textBoxComentarios.grid(row=8,column=1)
+            labelComentario1=Label(f1,text="Comentarios:",width=10,font=("arial",10)).grid(row=8,column=0)
+            textBoxComentario1 = Entry(f1)
+            textBoxComentario1.grid(row=8,column=1)
 
 
             Button(f1,text="Nuevo",width=12,command=añadirRegistros).grid(row=9,column=0)
             Button(f1,text="Eliminar",width=10,command=eliminarRegistros).grid(row=9,column=1)
 
 
-            ##f1a = Frame(groupBox)
-            ##groupBox.add(f1a, text="Modificar")
+            f1a = Frame(groupBox)
+            groupBox.add(f1a, text="Modificar")
 
-            ##textBoxId = Entry(f1a)
-            
-            ##labelCategoria=Label(f1a,text="Categorias:",width=10,font=("arial",9)).grid(row=1,column=0)
-            ##seleccionCategoria = tk.StringVar()
-            ##combo = ttk.Combobox(f1a,values=["Papeleria","Cafeteria","Aseo"],textvariable=seleccionCategoria)
-            ##combo.grid(row=1,column=1)
+            LabelCategoriaA=Label(f1a,text="Categorias:",width=10,font=("arial",10)).grid(row=1,column=0)
+            seleccionCategoriaA = tk.StringVar()
+            comboA = ttk.Combobox(f1a,values=["Papeleria","Cafeteria","Aseo"],textvariable=seleccionCategoria)
+            comboA.grid(row=1,column=1)
 
-            ##labelUbicacion=Label(f1a,text="Ubicación:",width=10,font=("arial",9)).grid(row=2,column=0)
-            ##textBoxUbicacion = Entry(f1a)
-            ##textBoxUbicacion.grid(row=2,column=1)
+            labelUbicacionA=Label(f1a,text="Ubicación:",width=10,font=("arial",10)).grid(row=2,column=0)
+            textBoxUbicacionA = Entry(f1a)
+            textBoxUbicacionA.grid(row=2,column=1)
 
-            ##labelNombre=Label(f1a,text="Nombre:",width=10,font=("arial",9)).grid(row=3,column=0)
-            ##textBoxNombre = Entry(f1a)
-            ##textBoxNombre.grid(row=3,column=1)
+            labelNombreA=Label(f1a,text="Nombre:",width=10,font=("arial",10)).grid(row=3,column=0)
+            textBoxNombreA = Entry(f1a)
+            textBoxNombreA.grid(row=3,column=1)
 
-            ##labelValorCompra=Label(f1a,text="Valor Compra:",width=10,font=("arial",9)).grid(row=4,column=0)
-            ##textBoxValorCompra = Entry(f1a)
-            ##textBoxValorCompra.grid(row=4,column=1)
+            labelValorCompraA=Label(f1a,text="Valor Compra:",width=10,font=("arial",10)).grid(row=4,column=0)
+            textBoxValorCompraA = Entry(f1a)
+            textBoxValorCompraA.grid(row=4,column=1)
 
-            ##labelIva=Label(f1a,text="Iva:",width=10,font=("arial",9)).grid(row=5,column=0)
-            ##textBoxIva = Entry(f1a)
-            ##textBoxIva.grid(row=5,column=1)
+            labelIvaA=Label(f1a,text="Iva:",width=10,font=("arial",10)).grid(row=5,column=0)
+            seleccionIvaA = tk.StringVar()
+            boxIvaA = ttk.Combobox(f1a,values=["N/A","5%","19%"],textvariable=seleccionIva)
+            boxIvaA.grid(row=5,column=1)
 
-            ##labelMinCantidad=Label(f1,text="Cantidad minima:",width=15,font=("arial",9)).grid(row=6,column=0)
-            ##textBoxMinCantidad = Entry(f1a)
-            ##textBoxMinCantidad.grid(row=6,column=1)
+            labelBoxCantidadA=Label(f1a,text="Cantidad minima:",width=15,font=("arial",10)).grid(row=6,column=0)
+            textBoxCantidadA = Entry(f1a)
+            textBoxCantidadA.grid(row=6,column=1)
 
-            ##labelFecha=Label(f1,text="Fecha:",width=15,font=("arial",9)).grid(row=7,column=0)
-            ##textBoxFecha = Entry(f1a)
-            ##textBoxFecha.grid(row=7,column=1)
+            labelMinCantidadA=Label(f1a,text="Cantidad minima:",width=15,font=("arial",10)).grid(row=7,column=0)
+            textBoxMinCantidadA = Entry(f1a)
+            textBoxMinCantidadA.grid(row=7,column=1)
 
-            ##labelComentarios=Label(f1a,text="Comentarios:",width=10,font=("arial",9)).grid(row=8,column=0)
-            ##textBoxComentarios = Entry(f1a)
-            ##textBoxComentarios.grid(row=8,column=1)
+            labelFechaA=Label(f1a,text="Fecha:",width=15,font=("arial",10)).grid(row=8,column=0)
+            textBoxFechaA = Entry(f1a)
+            textBoxFechaA.grid(row=8,column=1)
+
+            labelComentario1A=Label(f1a,text="Comentarios:",width=10,font=("arial",10)).grid(row=9,column=0)
+            textBoxComentario1A = Entry(f1a)
+            textBoxComentario1A.grid(row=9,column=1)
 
 
-            ##Button(f1a,text="Modificar",width=10,command=alterarRegistros).grid(row=9,column=0)
+            Button(f1a,text="Modificar",width=10,command=alterarRegistros).grid(row=9,column=0)
 
 
             f2 = Frame(groupBox)
             groupBox.add(f2, text="Entradas y Salidas")
 
             textBoxId = Entry(f2)
-
-            ##textBoxNombre = Entry(f2)
 
             labelMovimiento=Label(f2,text="Tipo de movimiento:",width=15,font=("arial",9)).grid(row=1,column=0)
             seleccionMovimiento = tk.StringVar()
@@ -220,7 +255,7 @@ def Formulario():
             tree.column("# 9", width= 40, anchor=CENTER)
             tree.heading("# 9",text="Stock")
 
-            tree.column("# 10", width= 60, anchor=CENTER)
+            """ tree.column("# 10", width= 60, anchor=CENTER)
             tree.heading("# 10",text="Min.Cantidad")
 
             tree.column("# 11", width= 70, anchor=CENTER)
@@ -233,7 +268,7 @@ def Formulario():
             tree.heading("# 13",text="Fecha modificación")
 
             tree.column("# 14", width= 80, anchor=CENTER)
-            tree.heading("# 14",text="Comentarios")
+            tree.heading("# 14",text="Comentarios") """
 
 
 
@@ -265,7 +300,7 @@ def Formulario():
             groupBox = LabelFrame(base,text="Otras opciones",padx=2,pady=2)
             groupBox.grid(row=1,column=1,padx=2,pady=2)
 
-            ##Button(groupBox,text="Refrescar tabla de inventario",width=24,command=actualizarTreeView).grid(row=0,column=0)
+            Button(groupBox,text="Refrescar tabla de inventario",width=24,command=actualizarTreeView).grid(row=0,column=0)
             Button(groupBox,text="Papelera de reciclaje",width=16,command=PapeleraDeReciclaje).grid(row=0,column=1)
 
             base.mainloop()
@@ -274,9 +309,10 @@ def Formulario():
             print("Error al crear la interfaz: Error {}".format(error))
 
 def añadirRegistros():
-        global combo,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxMinCantidad,textBoxFecha,textBoxComentarios,groupBox
+        global combo,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxMinCantidad,textBoxNuevaFecha,textBoxComentario1,groupBox
         try:
-            if combo is None or textBoxUbicacion is None or textBoxNombre is None or textBoxValorCompra is None or boxIva is None or textBoxMinCantidad is None or textBoxFecha is None or textBoxComentarios is None:
+            if combo is None or textBoxUbicacion is None or textBoxNombre is None or textBoxValorCompra is None or boxIva is None or textBoxMinCantidad is None or textBoxNuevaFecha is None or textBoxComentario1 is None:
+                messagebox.showinfo("Información","Datos incompletos. Porfavor, rellene todos los campos de datos")
                 print("Datos incompletos. Porfavor, rellene todos los campos de datos")
                 return
             
@@ -286,8 +322,8 @@ def añadirRegistros():
             ValorCompra = textBoxValorCompra.get()
             Iva = boxIva.get()
             MinCantidad = textBoxMinCantidad.get()
-            Fecha = textBoxFecha.get()
-            Comentarios = textBoxComentarios.get()
+            Fecha = textBoxNuevaFecha.get()
+            Comentarios = textBoxComentario1.get()
 
             print(Categoria)
             print(Ubicación)
@@ -306,8 +342,8 @@ def añadirRegistros():
             textBoxValorCompra.delete(0,END)
             boxIva.delete(0,END)
             textBoxMinCantidad.delete(0,END)
-            textBoxFecha.delete(0,END)
-            textBoxComentarios.delete(0,END)
+            textBoxNuevaFecha.delete(0,END)
+            textBoxComentario1.delete(0,END)
         
         except ValueError as error:
             print("Error al añadir nuevos datos: Error {}".format(error))
@@ -342,6 +378,17 @@ def seleccionarRegistro(event):
             textBoxMinCantidad.delete(0,END)
             textBoxFecha.delete(0,END)
             textBoxComentarios.delete(0,END)
+
+            comboA.delete(0,END)
+            textBoxUbicacionA.delete(0,END)
+            textBoxNombreA.delete(0,END)
+            textBoxValorCompraA.delete(0,END)
+            boxIvaA.delete(0,END)
+            textBoxCantidadA.delete(0,END)
+            textBoxMinCantidadA.delete(0,END)
+            textBoxFechaA.delete(0,END)
+            textBoxComentariosA.delete(0,END)
+
             textBoxId.insert(0,values[0])
             textBoxUbicacion.insert(0,values[2])
             textBoxNombre.insert(0,values[3])
@@ -350,14 +397,23 @@ def seleccionarRegistro(event):
             textBoxMinCantidad.insert(0,values[9])
             textBoxFecha.insert(0,values[11])
             textBoxComentarios.insert(0,values[13])
+
+            textBoxUbicacionA.insert(0,values[2])
+            textBoxNombreA.insert(0,values[3])
+            textBoxValorCompraA.insert(0,values[4])
+            textBoxCantidadA.insert(0,values[6])
+            textBoxMinCantidadA.insert(0,values[9])
+            textBoxFechaA.insert(0,values[11])
+            textBoxComentariosA.insert(0,values[13])
         
     except ValueError as error:
         print("Error al seleccionar datos: Error {}".format(error))
 
 def alterarRegistros():
-            global textBoxId,combo,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxFecha,textBoxComentarios,groupBox
+            global textBoxId,comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxCantidadA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
             try:
-                if textBoxId is None or combo is None or textBoxUbicacion is None or textBoxNombre is None or textBoxValorCompra is None or boxIva is None or textBoxMinCantidad is None or textBoxFecha is None or textBoxComentarios is None:
+                if textBoxId is None or comboA is None or textBoxUbicacionA is None or textBoxNombreA is None or textBoxValorCompraA is None or boxIvaA is None or textBoxMinCantidadA is None or textBoxFechaA is None or textBoxComentariosA is None:
+                    messagebox.showinfo("Información","Datos incompletos. Porfavor, rellene todos los campos de datos")
                     print("Datos incompletos. Porfavor, rellene todos los campos de datos")
                     return
                 
@@ -416,6 +472,7 @@ def modificarRegistros():
         global textBoxId,combo2,textBoxNombre,textBoxCantidad,textBoxFecha,textBoxComentarios,groupBox
         try:
             if textBoxId is None or combo2 is None or textBoxNombre is None or textBoxCantidad is None or textBoxFecha is None or textBoxComentarios is None:
+                messagebox.showinfo("Información","Datos incompletos. Porfavor, rellene todos los campos de datos")
                 print("Datos incompletos. Porfavor, rellene todos los campos de datos")
                 print(textBoxId)
                 print(combo2)
@@ -563,6 +620,7 @@ def eliminarPapelera():
         global textBoxId
         try:
             if textBoxId is None:
+                messagebox.showinfo("Información","Datos incompletos. Porfavor, rellene todos los campos de datos")
                 print("Datos incompletos. Porfavor, rellene todos los campos de datos")
                 return
             
