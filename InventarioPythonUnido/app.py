@@ -57,11 +57,23 @@ class FormularioInventario:
     global groupBox
     groupBox =None
 
+    global groupBox2
+    groupBox2 =None
+
+    global groupBox3
+    groupBox3 =None
+
     global tree
     tree =None
 
     global tree2
     tree2 =None
+
+    global tree3
+    tree3 =None
+
+    global tipo
+    tipo =1
 
     global comboA
     comboA =None
@@ -87,12 +99,16 @@ class FormularioInventario:
     global textBoxComentariosA
     textBoxComentariosA=None
 
+    global label1
+    label1=None
+
+
 def Formulario():
         global textBoxId,combo,combo2,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxNuevaFecha,textBoxFecha,textBoxComentario1,textBoxComentarios,groupBox,tree
-        global comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxCantidadA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
+        global comboA,textBoxUbicacionA,textBoxNombreA,textBoxValorCompraA,boxIvaA,textBoxMinCantidadA,textBoxFechaA,textBoxComentariosA
         try:
             base = Tk()
-            base.geometry("1260x350")
+            base.geometry("850x350")
             base.title("Formulario Python Unido")
             
             groupBox = ttk.Notebook(base)
@@ -107,7 +123,7 @@ def Formulario():
 
             labelCategoria=Label(f1,text="Categorias:",width=10,font=("arial",10)).grid(row=1,column=0)
             seleccionCategoria = tk.StringVar()
-            combo = ttk.Combobox(f1,values=["Papeleria","Cafeteria","Aseo"],textvariable=seleccionCategoria)
+            combo = ttk.Combobox(f1,values=["OF","CF","AS"],textvariable=seleccionCategoria)
             combo.grid(row=1,column=1)
 
             labelUbicacion=Label(f1,text="Ubicación:",width=10,font=("arial",10)).grid(row=2,column=0)
@@ -141,7 +157,6 @@ def Formulario():
 
 
             Button(f1,text="Nuevo",width=12,command=añadirRegistros).grid(row=9,column=0)
-            Button(f1,text="Eliminar",width=10,command=eliminarRegistros).grid(row=9,column=1)
 
 
             f1a = Frame(groupBox)
@@ -149,7 +164,7 @@ def Formulario():
 
             LabelCategoriaA=Label(f1a,text="Categorias:",width=10,font=("arial",10)).grid(row=1,column=0)
             seleccionCategoriaA = tk.StringVar()
-            comboA = ttk.Combobox(f1a,values=["Papeleria","Cafeteria","Aseo"],textvariable=seleccionCategoria)
+            comboA = ttk.Combobox(f1a,values=["OF","CF","AS"],textvariable=seleccionCategoria)
             comboA.grid(row=1,column=1)
 
             labelUbicacionA=Label(f1a,text="Ubicación:",width=10,font=("arial",10)).grid(row=2,column=0)
@@ -229,7 +244,7 @@ def Formulario():
             tree.column("# 3", width= 60, anchor=CENTER)
             tree.heading("# 3",text="Ubicación")
 
-            tree.column("# 4", width= 120, anchor=CENTER)
+            tree.column("# 4", width= 120, anchor=W)
             tree.heading("# 4",text="Nombre")
 
             tree.column("# 5", width= 70, anchor=CENTER)
@@ -289,11 +304,17 @@ def Formulario():
             ##tree.configure(xscrollcommand=scrollbar2.set)
             tree.bind("<MouseWheel>", lambda event: tree.yview_scroll(-1 * int((event.delta / 120)), "units"))
             
+            groupBox = LabelFrame(base,text="Control de productos",padx=2,pady=2)
+            groupBox.grid(row=1,column=0,padx=2,pady=2)
+
+            Button(groupBox,text="Eliminar producto selecionado",width=24,command=eliminarRegistros).grid(row=0,column=0)
+            Button(groupBox,text="Refrescar tabla de inventario",width=24,command=actualizarTreeView).grid(row=1,column=0)
+            
             groupBox = LabelFrame(base,text="Otras opciones",padx=2,pady=2)
             groupBox.grid(row=1,column=1,padx=2,pady=2)
 
-            Button(groupBox,text="Refrescar tabla de inventario",width=24,command=actualizarTreeView).grid(row=0,column=0)
-            Button(groupBox,text="Papelera de reciclaje",width=16,command=PapeleraDeReciclaje).grid(row=0,column=1)
+            Button(groupBox,text="Papelera de reciclaje",width=16,command=PapeleraDeReciclaje).grid(row=0,column=0)
+            Button(groupBox,text="Historial de movimientos",width=20,command=HistorialMovimientos).grid(row=0,column=1)
 
             base.mainloop()
             
@@ -507,7 +528,7 @@ def modificarRegistros():
             print("Error al modificar los datos: Error {}".format(error))
 
 def PapeleraDeReciclaje():
-        global textBoxId,combo,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxFecha,textBoxComentarios,groupBox,tree2
+        global textBoxId,combo,textBoxUbicacion,textBoxNombre,textBoxValorCompra,boxIva,textBoxCantidad,textBoxMinCantidad,textBoxFecha,textBoxComentarios,groupBox,groupBox2,tree2
         try:
             window = tk.Toplevel(groupBox)
             window.grab_set()
@@ -531,7 +552,7 @@ def PapeleraDeReciclaje():
             tree2.column("# 3", width= 60, anchor=CENTER)
             tree2.heading("# 3",text="Ubicación")
 
-            tree2.column("# 4", width= 120, anchor=CENTER)
+            tree2.column("# 4", width= 120, anchor=W)
             tree2.heading("# 4",text="Nombre")
 
             tree2.column("# 5", width= 70, anchor=CENTER)
@@ -600,7 +621,7 @@ def actualizarTreePapelera():
         datos = CProductos.mostrarPapelera()
 
         for row in CProductos.mostrarPapelera():
-            tree.insert("","end",values=row)
+            tree2.insert("","end",values=row)
     
     except ValueError as error:
         print("Error al actualizar la tabla: Error {}".format(error))
@@ -651,6 +672,118 @@ def seleccionarPapelera(event):
         
     except ValueError as error:
         print("Error al seleccionar datos: Error {}".format(error))
+
+
+def HistorialMovimientos():
+        global groupBox,groupBox3,tree3,tipo,label1
+        try:
+            window2 = tk.Toplevel(groupBox)
+            window2.grab_set()
+
+            movimiento =None
+
+            if tipo:
+                movimiento = "entradas"
+            else:
+                movimiento = "salidas"
+
+            label1=Label(window2,text=movimiento,width=30,font=("arial",12),padx=5,pady=5)
+            label1.grid(row=0,column=0)
+
+            groupBox3 = LabelFrame(window2,text="historial de movimientos",padx=5,pady=5)
+            groupBox3.grid(row=1,column=0,padx=5,pady=5)
+           
+
+            tree3 = ttk.Treeview(groupBox3,columns=("Id de movimiento", "Id de producto", "Nombre",
+            "Cantidad ingresada", "Fecha del movimiento", "Comentarios"),selectmode="browse",
+            show="headings", height=10)
+            tree3.grid(row=1,column=1)
+
+            tree3.column("# 1", width= 60, anchor=CENTER)
+            tree3.heading("# 1",text="Id de movimiento")
+
+            tree3.column("# 2", width= 60, anchor=CENTER)
+            tree3.heading("# 2",text="Id de producto")
+
+            tree3.column("# 3", width= 120, anchor=W)
+            tree3.heading("# 3",text="Nombre")
+
+            tree3.column("# 4", width= 120, anchor=CENTER)
+            tree3.heading("# 4",text="Cantidad ingresada")
+
+            tree3.column("# 5", width= 115, anchor=CENTER)
+            tree3.heading("# 5",text="Fecha del movimiento")
+
+            tree3.column("# 6", width= 80, anchor=CENTER)
+            tree3.heading("# 6",text="Comentarios")
+
+
+            if tipo:
+                for row in CProductos.mostrarHistorialEntradas():
+                    tree3.insert("","end",values=row)
+            else:
+                for row in CProductos.mostrarHistorialSalidas():
+                    tree3.insert("","end",values=row)
+            
+            
+
+
+
+            # tree2.bind("<<TreeviewSelect>>",seleccionarPapelera)
+            
+            
+            scrollbar3 = Scrollbar(groupBox3, orient="vertical", command=tree3.yview)
+            tree3.configure(yscrollcommand=scrollbar3.set)
+
+            tree3.pack(side=LEFT)
+            scrollbar3.pack(side=RIGHT,  fill="y")
+            tree3.bind("<MouseWheel>", lambda event: tree3.yview_scroll(-1 * int((event.delta / 120)), "units"))
+
+            
+            groupBox3 = LabelFrame(window2,text="Opciones",padx=5,pady=5)
+            groupBox3.grid(row=2,column=0,padx=5,pady=5)
+            Button(groupBox3,text="Cambiar el tipo de movimiento",width=30,command=CambiarTipo).grid(row=0,column=0)
+
+        except ValueError as error:
+            print("Error al modificar los datos: Error {}".format(error))
+
+def actualizarTreeHistorial():
+    global tree3,tipo,label1
+
+    try:
+        if tipo:
+            tree3.delete(*tree3.get_children())
+
+            datos = CProductos.mostrarHistorialEntradas()
+
+            for row in CProductos.mostrarHistorialEntradas():
+                tree3.insert("","end",values=row)
+        else:
+            tree3.delete(*tree3.get_children())
+
+            datos = CProductos.mostrarHistorialSalidas()
+
+            for row in CProductos.mostrarHistorialSalidas():
+                tree3.insert("","end",values=row)
+    
+    except ValueError as error:
+        print("Error al actualizar la tabla: Error {}".format(error))
+
+def CambiarTipo():
+    global tipo,label1
+
+    try:
+        if tipo:
+            tipo=0
+            actualizarTreeHistorial()
+            label1.config(text="salidas")
+        else:
+            tipo=1
+            actualizarTreeHistorial()
+            label1.config(text="entradas")
+    
+    except ValueError as error:
+        print("Error al actualizar la tabla: Error {}".format(error))
 
 
 Formulario()

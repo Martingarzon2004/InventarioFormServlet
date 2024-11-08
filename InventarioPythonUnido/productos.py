@@ -150,3 +150,30 @@ class CProductos:
 
         except ValueError as error:
             print("Error de comunicación: Error {}".format(error))
+
+    
+    def mostrarHistorialEntradas():
+        try:
+            cone = CConexion.ConexionBaseDeDatos()
+            cursor = cone.cursor()
+            cursor.execute("select * from `entradas`;")
+            miResultado = cursor.fetchall()
+            cone.commit()
+            cone.close()
+            return miResultado
+
+        except mysql.connector.Error as error:
+            print("Error al mostrar los datos: Error {}".format(error))
+
+    def mostrarHistorialSalidas():
+        try:
+            cone = CConexion.ConexionBaseDeDatos()
+            cursor = cone.cursor()
+            cursor.execute("select * from `salidas`;")
+            miResultado = cursor.fetchall()
+            cone.commit()
+            cone.close()
+            return miResultado
+
+        except mysql.connector.Error as error:
+            print("Error al mostrar los datos: Error {}".format(error))
